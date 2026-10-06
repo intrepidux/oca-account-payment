@@ -1,0 +1,125 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* account_payment_replace
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-07-30 22:00+0000\n"
+"PO-Revision-Date: 2026-07-30 22:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: account_payment_replace
+#: model_terms:ir.ui.view,arch_db:account_payment_replace.view_account_payment_form_replace
+msgid "Payment Replacement"
+msgstr ""
+
+#. module: account_payment_replace
+#: model_terms:ir.ui.view,arch_db:account_payment_replace.view_account_payment_form_replace
+#: model_terms:ir.ui.view,arch_db:account_payment_replace.view_move_form_payment_replace
+msgid "Replace Payment"
+msgstr ""
+
+#. module: account_payment_replace
+#: model:ir.actions.server,name:account_payment_replace.action_account_move_replace_payment
+#: model:ir.actions.server,name:account_payment_replace.action_account_payment_replace
+msgid "Modify Payment"
+msgstr ""
+
+#. module: account_payment_replace
+#: model_terms:ir.ui.view,arch_db:account_payment_replace.view_account_payment_form_replace
+#: model_terms:ir.ui.view,arch_db:account_payment_replace.view_move_form_payment_replace
+msgid "Edit Payment"
+msgstr ""
+
+#. module: account_payment_replace
+#: model:res.groups,name:account_payment_replace.group_account_payment_replace
+msgid "Replace Payments"
+msgstr ""
+
+#. module: account_payment_replace
+#: model:ir.model.fields,field_description:account_payment_replace.field_account_payment__replaced_payment_id
+msgid "Replaced Payment"
+msgstr ""
+
+#. module: account_payment_replace
+#: model:ir.model.fields,field_description:account_payment_replace.field_account_payment__replacement_payment_id
+msgid "Replacement Payment"
+msgstr ""
+
+#. module: account_payment_replace
+#: model:ir.model.fields,field_description:account_payment_replace.field_account_payment__is_replaced
+msgid "Is Replaced"
+msgstr ""
+
+#. module: account_payment_replace
+#. odoo-python
+#: code:addons/account_payment_replace/models/account_payment.py:0
+msgid "Only posted payments can be replaced."
+msgstr ""
+
+#. module: account_payment_replace
+#. odoo-python
+#: code:addons/account_payment_replace/models/account_payment.py:0
+msgid "You do not have permission to replace payments."
+msgstr ""
+
+#. module: account_payment_replace
+#. odoo-python
+#: code:addons/account_payment_replace/models/account_payment.py:0
+msgid "Internal transfers cannot be replaced with this action."
+msgstr ""
+
+#. module: account_payment_replace
+#. odoo-python
+#: code:addons/account_payment_replace/models/account_payment.py:0
+msgid ""
+"This payment is reconciled with a bank statement. Undo the bank "
+"reconciliation before replacing it."
+msgstr ""
+
+#. module: account_payment_replace
+#. odoo-python
+#: code:addons/account_payment_replace/models/account_payment.py:0
+msgid "This payment was replaced by %(payment)s"
+msgstr ""
+
+#. module: account_payment_replace
+#. odoo-python
+#: code:addons/account_payment_replace/models/account_payment.py:0
+msgid "This payment replaces payment %(payment)s"
+msgstr ""
+
+#. module: account_payment_replace
+#. odoo-python
+#: code:addons/account_payment_replace/models/account_payment.py:0
+msgid "Register Payment"
+msgstr ""
+
+#. module: account_payment_replace
+#: model:ir.model.fields,field_description:account_payment_replace.field_res_company__account_payment_modify_mode
+#: model:ir.model.fields,field_description:account_payment_replace.field_res_config_settings__account_payment_modify_mode
+msgid "Payment Modify Mode"
+msgstr ""
+
+#. module: account_payment_replace
+#: model:ir.model.fields.selection,name:account_payment_replace.selection__res_company__account_payment_modify_mode__replace
+msgid "Replace payment (cancel and create new)"
+msgstr ""
+
+#. module: account_payment_replace
+#: model:ir.model.fields.selection,name:account_payment_replace.selection__res_company__account_payment_modify_mode__edit
+msgid "Edit payment (keep same record)"
+msgstr ""
+
+#. module: account_payment_replace
+#. odoo-python
+#: code:addons/account_payment_replace/models/account_payment.py:0
+msgid "Write-Off"
+msgstr ""

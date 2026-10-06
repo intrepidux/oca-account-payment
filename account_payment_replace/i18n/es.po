@@ -1,0 +1,206 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* account_payment_replace
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-07-30 22:00+0000\n"
+"PO-Revision-Date: 2026-07-30 22:00+0000\n"
+"Last-Translator: \n"
+"Language: es\n"
+"Language-Team: Spanish\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: account_payment_replace
+#: model_terms:ir.ui.view,arch_db:account_payment_replace.view_account_payment_form_replace
+msgid "Payment Replacement"
+msgstr "Reemplazo de pago"
+
+#. module: account_payment_replace
+#: model_terms:ir.ui.view,arch_db:account_payment_replace.view_account_payment_form_replace
+#: model_terms:ir.ui.view,arch_db:account_payment_replace.view_move_form_payment_replace
+msgid "Replace Payment"
+msgstr "Reemplazar pago"
+
+#. module: account_payment_replace
+#: model:ir.actions.server,name:account_payment_replace.action_account_move_replace_payment
+#: model:ir.actions.server,name:account_payment_replace.action_account_payment_replace
+msgid "Modify Payment"
+msgstr "Modificar pago"
+
+#. module: account_payment_replace
+#: model_terms:ir.ui.view,arch_db:account_payment_replace.view_account_payment_form_replace
+#: model_terms:ir.ui.view,arch_db:account_payment_replace.view_move_form_payment_replace
+msgid "Edit Payment"
+msgstr "Editar pago"
+
+#. module: account_payment_replace
+#: model:res.groups,name:account_payment_replace.group_account_payment_replace
+msgid "Replace Payments"
+msgstr "Reemplazar pagos"
+
+#. module: account_payment_replace
+#: model:ir.model.fields,field_description:account_payment_replace.field_account_payment__replaced_payment_id
+msgid "Replaced Payment"
+msgstr "Pago reemplazado"
+
+#. module: account_payment_replace
+#: model:ir.model.fields,field_description:account_payment_replace.field_account_payment__replacement_payment_id
+msgid "Replacement Payment"
+msgstr "Pago de reemplazo"
+
+#. module: account_payment_replace
+#: model:ir.model.fields,field_description:account_payment_replace.field_account_payment__is_replaced
+msgid "Is Replaced"
+msgstr "Reemplazado"
+
+#. module: account_payment_replace
+#. odoo-python
+#: code:addons/account_payment_replace/models/account_payment.py:0
+msgid "Only posted payments can be replaced."
+msgstr "Solo se pueden reemplazar pagos publicados."
+
+#. module: account_payment_replace
+#. odoo-python
+#: code:addons/account_payment_replace/models/account_payment.py:0
+msgid "You do not have permission to replace payments."
+msgstr "No tiene permiso para reemplazar pagos."
+
+#. module: account_payment_replace
+#. odoo-python
+#: code:addons/account_payment_replace/models/account_payment.py:0
+msgid "Internal transfers cannot be replaced with this action."
+msgstr "Las transferencias internas no se pueden reemplazar con esta acción."
+
+#. module: account_payment_replace
+#. odoo-python
+#: code:addons/account_payment_replace/models/account_payment.py:0
+msgid ""
+"This payment is reconciled with a bank statement. Undo the bank "
+"reconciliation before replacing it."
+msgstr ""
+"Este pago está conciliado con un extracto bancario. Deshaga la "
+"conciliación bancaria antes de reemplazarlo."
+
+#. module: account_payment_replace
+#. odoo-python
+#: code:addons/account_payment_replace/models/account_payment.py:0
+msgid "This payment was replaced by %(payment)s"
+msgstr "Este pago fue reemplazado por %(payment)s"
+
+#. module: account_payment_replace
+#. odoo-python
+#: code:addons/account_payment_replace/models/account_payment.py:0
+msgid "This payment replaces payment %(payment)s"
+msgstr "Este pago reemplaza al pago %(payment)s"
+
+#. module: account_payment_replace
+#. odoo-python
+#: code:addons/account_payment_replace/models/account_payment.py:0
+msgid "Register Payment"
+msgstr "Registrar pago"
+
+#. module: account_payment_replace
+#. odoo-python
+#: code:addons/account_payment_replace/models/account_payment.py:0
+msgid "Write-Off"
+msgstr "Desajuste"
+
+#. module: account_payment_replace
+#. odoo-python
+#: code:addons/account_payment_replace/models/account_move.py:0
+msgid "Replace Payment is only available on posted invoices or bills."
+msgstr "Reemplazar pago solo está disponible en facturas o facturas de proveedor publicadas."
+
+#. module: account_payment_replace
+#. odoo-python
+#: code:addons/account_payment_replace/models/account_move.py:0
+msgid "This document has no payment to replace."
+msgstr "Este documento no tiene un pago para reemplazar."
+
+#. module: account_payment_replace
+#. odoo-python
+#: code:addons/account_payment_replace/models/account_move.py:0
+msgid ""
+"No replaceable payment found. Payments matched to a bank statement, already "
+"replaced, or without invoice reconciliation cannot be replaced."
+msgstr ""
+"No se encontró un pago reemplazable. Los pagos conciliados con un extracto "
+"bancario, ya reemplazados o sin conciliación con factura no se pueden "
+"reemplazar."
+
+#. module: account_payment_replace
+#: model:ir.model.fields,field_description:account_payment_replace.field_res_company__account_payment_modify_mode
+#: model:ir.model.fields,field_description:account_payment_replace.field_res_config_settings__account_payment_modify_mode
+msgid "Payment Modify Mode"
+msgstr "Modo de corrección de pagos"
+
+#. module: account_payment_replace
+#: model:ir.model.fields.selection,name:account_payment_replace.selection__res_company__account_payment_modify_mode__replace
+msgid "Replace payment (cancel and create new)"
+msgstr "Reemplazar pago (cancelar y crear uno nuevo)"
+
+#. module: account_payment_replace
+#: model:ir.model.fields.selection,name:account_payment_replace.selection__res_company__account_payment_modify_mode__edit
+msgid "Edit payment (keep same record)"
+msgstr "Editar pago (conservar el mismo registro)"
+
+#. module: account_payment_replace
+#. odoo-python
+#: code:addons/account_payment_replace/models/account_payment.py:0
+msgid "You do not have permission to modify payments."
+msgstr "No tiene permiso para modificar pagos."
+
+#. module: account_payment_replace
+#. odoo-python
+#: code:addons/account_payment_replace/models/account_payment.py:0
+msgid "Only posted payments can be modified."
+msgstr "Solo se pueden modificar pagos publicados."
+
+#. module: account_payment_replace
+#. odoo-python
+#: code:addons/account_payment_replace/models/account_payment.py:0
+msgid "Internal transfers cannot be modified with this action."
+msgstr "Las transferencias internas no se pueden modificar con esta acción."
+
+#. module: account_payment_replace
+#. odoo-python
+#: code:addons/account_payment_replace/models/account_payment.py:0
+msgid ""
+"This payment is reconciled with a bank statement. Undo the bank "
+"reconciliation before modifying it."
+msgstr ""
+"Este pago está conciliado con un extracto bancario. Deshaga la "
+"conciliación bancaria antes de modificarlo."
+
+#. module: account_payment_replace
+#. odoo-python
+#: code:addons/account_payment_replace/models/account_payment.py:0
+msgid "Only draft payments can be edited from the wizard."
+msgstr "Solo los pagos en borrador se pueden editar desde el asistente."
+
+#. module: account_payment_replace
+#. odoo-python
+#: code:addons/account_payment_replace/models/account_payment.py:0
+msgid "Payment edited via Register Payment wizard:"
+msgstr "Pago editado mediante el asistente Registrar pago:"
+
+#. module: account_payment_replace
+#. odoo-python
+#: code:addons/account_payment_replace/models/account_payment.py:0
+msgid "No field changes detected."
+msgstr "No se detectaron cambios en los campos."
+
+#. module: account_payment_replace
+#: model_terms:ir.ui.view,arch_db:account_payment_replace.res_config_settings_view_form
+msgid ""
+"Choose whether correcting a posted payment keeps the same record or cancels "
+"it and creates a new one."
+msgstr ""
+"Elija si corregir un pago publicado conserva el mismo registro o lo cancela "
+"y crea uno nuevo."

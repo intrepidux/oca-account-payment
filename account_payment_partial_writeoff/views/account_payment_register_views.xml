@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_account_payment_register_form_partial_writeoff" model="ir.ui.view">
+        <field name="name">account.payment.register.form.partial.writeoff</field>
+        <field name="model">account.payment.register</field>
+        <field name="inherit_id" ref="account.view_account_payment_register_form"/>
+        <field name="arch" type="xml">
+
+            <field name="company_currency_id" position="after">
+                <field name="show_writeoff_invoice_detail" invisible="1"/>
+            </field>
+
+            <!-- Native radio; partial write-off nested under Mantener abierto. -->
+            <xpath expr="//field[@name='payment_difference_handling']" position="after">
+                <div name="partial_writeoff_open_options" class="ml-4"
+                     attrs="{'invisible': [('payment_difference_handling', '!=', 'open')]}">
+                    <div class="o_row mb-2">
+                        <field name="post_difference_on_open" nolabel="1"/>
+                        <label for="post_difference_on_open" string="Contabilizar diferencia"/>
+                    </div>
+                    <div name="partial_writeoff_open_fields" class="ml-4"
+                         attrs="{'invisible': [('post_difference_on_open', '=', False)]}">
+                        <label for="open_writeoff_account_id"
+                               string="Contabilizar la diferencia en"
+                               class="oe_edit_only"/>
+                        <field name="open_writeoff_account_id"
+                               nolabel="1"
+                               class="oe_inline mb-2"
+                               options="{'no_create': True}"/>
+                        <label for="open_writeoff_label" string="Etiqueta" class="oe_edit_only"/>
+                        <field name="open_writeoff_label" nolabel="1" class="oe_inline mb-2"/>
+                        <label for="writeoff_amount" string="Importe write-off" class="oe_edit_only"/>
+                        <field name="writeoff_amount" nolabel="1" class="oe_inline"/>
+                    </div>
+                </div>
+            </xpath>
+
+            <!-- Soften native required so empty account never blocks UI toggles. -->
+            <xpath expr="//field[@name='writeoff_account_id']" position="attributes">
+                <attribute name="attrs">{}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='writeoff_label']" position="attributes">
+                <attribute name="attrs">{}</attribute>
+            </xpath>
+
+            <xpath expr="//footer" position="before">
+                <separator name="writeoff_invoice_detail_separator"
+                           string="Detalle de facturas"
+                           attrs="{'invisible': [('show_writeoff_invoice_detail', '=', False)]}"/>
+
+                <div name="select_all_writeoff_div" class="o_row mb-2"
+                     attrs="{'invisible': [('show_writeoff_invoice_detail', '=', False)]}">
+                    <field name="option_select_writeoff_invoices"
+                           widget="boolean_toggle"
+                           string="Seleccionar / Deseleccionar todo"/>
+                </div>
+
+                <field name="register_writeoff_line_ids"
+                       attrs="{'invisible': [('show_writeoff_invoice_detail', '=', False)]}">
+                    <tree editable="bottom" create="false" delete="false">
+                        <field name="add_invoice" widget="boolean_toggle" string="Seleccionar"/>
+                        <field name="invoice_id" readonly="1" force_save="1" string="Factura"/>
+                        <field name="date_invoice" string="Fecha"/>
+                        <field name="date_due" string="Vencimiento"/>
+                        <field name="amount_total" sum="Total"/>
+                        <field name="residual" sum="Total" string="Pendiente"/>
+                        <field name="allocated_amount" sum="Total" string="Efectivo"/>
+                        <field name="amount_to_reconcile" sum="Total" string="A conciliar"/>
+                        <field name="currency_id" invisible="1"/>
+                    </tree>
+                </field>
+            </xpath>
+
+        </field>
+    </record>
+
+</odoo>

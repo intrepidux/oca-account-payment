@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 Intrepidux
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="view_account_payment_form_replace" model="ir.ui.view">
+        <field name="name">account.payment.form.replace</field>
+        <field name="model">account.payment</field>
+        <field name="inherit_id" ref="account.view_account_payment_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//header/button[@name='action_draft']" position="after">
+                <button
+                    name="action_replace_payment"
+                    string="Edit Payment"
+                    type="object"
+                    class="btn-secondary"
+                    groups="account_payment_replace.group_account_payment_replace"
+                    attrs="{'invisible': ['|', '|', '|', '|', ('state', '!=', 'posted'), ('is_replaced', '=', True), ('reconciled_statements_count', '!=', 0), ('is_internal_transfer', '=', True), ('account_payment_modify_mode', '!=', 'edit')]}"
+                    data-hotkey="shift+r"
+                />
+                <button
+                    name="action_replace_payment"
+                    string="Replace Payment"
+                    type="object"
+                    class="btn-secondary"
+                    groups="account_payment_replace.group_account_payment_replace"
+                    attrs="{'invisible': ['|', '|', '|', '|', ('state', '!=', 'posted'), ('is_replaced', '=', True), ('reconciled_statements_count', '!=', 0), ('is_internal_transfer', '=', True), ('account_payment_modify_mode', '!=', 'replace')]}"
+                    data-hotkey="shift+r"
+                />
+            </xpath>
+            <xpath expr="//field[@name='is_matched']" position="after">
+                <field name="account_payment_modify_mode" invisible="1" />
+                <field name="is_replaced" invisible="1" />
+                <field name="replaced_payment_id" invisible="1" />
+                <field name="replacement_payment_id" invisible="1" />
+                <field name="reconciled_statements_count" invisible="1" />
+            </xpath>
+            <xpath expr="//sheet" position="inside">
+                <group
+                    string="Payment Replacement"
+                    name="payment_replacement"
+                    attrs="{'invisible': [('replaced_payment_id', '=', False), ('replacement_payment_id', '=', False)]}"
+                >
+                    <field
+                        name="replaced_payment_id"
+                        readonly="1"
+                        attrs="{'invisible': [('replaced_payment_id', '=', False)]}"
+                    />
+                    <field
+                        name="replacement_payment_id"
+                        readonly="1"
+                        attrs="{'invisible': [('replacement_payment_id', '=', False)]}"
+                    />
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="action_account_payment_replace" model="ir.actions.server">
+        <field name="name">Modify Payment</field>
+        <field name="model_id" ref="account.model_account_payment" />
+        <field name="binding_model_id" ref="account.model_account_payment" />
+        <field name="binding_view_types">list,form</field>
+        <field name="state">code</field>
+        <field name="groups_id" eval="[(4, ref('group_account_payment_replace'))]" />
+        <field name="code">
+if records:
+    action = records.action_replace_payment()
+        </field>
+    </record>
+</odoo>

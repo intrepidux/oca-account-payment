@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_account_payment_form_partial_writeoff" model="ir.ui.view">
+        <field name="name">account.payment.form.partial.writeoff</field>
+        <field name="model">account.payment</field>
+        <field name="inherit_id" ref="account.view_account_payment_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//sheet" position="inside">
+                <field name="payment_difference_handling" invisible="1"/>
+                <field name="writeoff_account_id" invisible="1"/>
+                <field name="writeoff_label" invisible="1"/>
+                <field name="writeoff_amount" invisible="1"/>
+                <field name="post_difference_on_open" invisible="1"/>
+            </xpath>
+
+            <xpath expr="//sheet" position="inside">
+                <separator name="writeoff_invoice_detail_separator"
+                           string="Detalle de facturas"
+                           attrs="{'invisible': ['|', '|', ('payment_type', 'not in', ['inbound', 'outbound']), ('partner_type', 'not in', ['customer', 'supplier']), ('post_difference_on_open', '=', False)]}"/>
+
+                <div name="select_all_writeoff_div" class="o_row"
+                     attrs="{'invisible': ['|', ('state', '!=', 'draft'), ('post_difference_on_open', '=', False)]}">
+                    <field name="option_select_writeoff_invoices"
+                           widget="boolean_toggle"
+                           string="Seleccionar / Deseleccionar todo"/>
+                </div>
+
+                <field name="payment_writeoff_line_ids"
+                       attrs="{'invisible': ['|', '|', ('payment_type', 'not in', ['inbound', 'outbound']), ('partner_type', 'not in', ['customer', 'supplier']), ('post_difference_on_open', '=', False)]}">
+                    <tree editable="bottom" create="false" delete="false">
+                        <field name="add_invoice" widget="boolean_toggle" string="Seleccionar"
+                               attrs="{'column_invisible': [('parent.state', '!=', 'draft')]}"/>
+                        <field name="invoice_id" readonly="1" force_save="1" string="Factura"/>
+                        <field name="date_invoice" string="Fecha"/>
+                        <field name="date_due" string="Vencimiento"/>
+                        <field name="amount_total" sum="Total"/>
+                        <field name="residual" sum="Total" string="Pendiente"/>
+                        <field name="allocated_amount" sum="Total" string="Efectivo"/>
+                        <field name="amount_to_reconcile" sum="Total" string="A conciliar"/>
+                        <field name="currency_id" invisible="1"/>
+                        <field name="payment_state" invisible="1"/>
+                    </tree>
+                </field>
+            </xpath>
+
+        </field>
+    </record>
+
+</odoo>

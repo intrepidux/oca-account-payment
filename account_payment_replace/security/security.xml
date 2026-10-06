@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 Intrepidux
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="group_account_payment_replace" model="res.groups">
+        <field name="name">Replace Payments</field>
+        <field name="category_id" ref="base.module_category_accounting_accounting" />
+        <field
+            name="comment"
+        >Allow cancelling a posted payment and reopening Register Payment prefilled.</field>
+    </record>
+
+    <!-- Billing users get replace permission by default -->
+    <record id="account.group_account_invoice" model="res.groups">
+        <field
+            name="implied_ids"
+            eval="[(4, ref('group_account_payment_replace'))]"
+        />
+    </record>
+</odoo>
